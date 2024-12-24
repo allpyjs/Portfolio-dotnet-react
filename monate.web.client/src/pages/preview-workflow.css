@@ -1,0 +1,65 @@
+.body-dark {
+    width: 100%;
+    min-height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    box-sizing: border-box;
+    padding: 0px;
+    background-color: black;
+}
+
+.body-light {
+    width: 100%;
+    min-height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    box-sizing: border-box;
+    padding: 0px;
+    background-color: white;
+}
+
+.workflow-button-light {
+    width: 270px;
+    border-radius: 20px;
+    height: 50px;
+    margin-top: 40px;
+    text-align: center;
+    background-color: #dfefef;
+    color: #1f2f2f;
+    font-size: 30px;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: .3s;
+    cursor: pointer;
+}
+
+    .workflow-button-light:hover {
+        background-color: #bfcfcf;
+    }
+
+.workflow-button-dark {
+    width: 270px;
+    border-radius: 20px;
+    height: 50px;
+    margin-top: 40px;
+    text-align: center;
+    background-color: #1f2f2f;
+    color: #dfefef;
+    font-size: 30px;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: .3s;
+    cursor: pointer;
+}
+
+    .workflow-button-dark:hover {
+        background-color: #2f3f3f;
+    }

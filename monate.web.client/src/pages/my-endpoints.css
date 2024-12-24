@@ -1,0 +1,23 @@
+.body-dark {
+    width: 100%;
+    min-height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    box-sizing: border-box;
+    padding: 0px;
+    background-color: black;
+}
+
+.body-light {
+    width: 100%;
+    min-height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    box-sizing: border-box;
+    padding: 0px;
+    background-color: white;
+}

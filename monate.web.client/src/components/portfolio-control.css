@@ -1,0 +1,31 @@
+.page-button-light {
+    background-color: #dfefef;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.page-button-light:hover {
+    background-color: #cfdfdf;
+}
+
+.page-button-light-disabled {
+    background-color: #dfefef;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.page-button-dark {
+    background-color: #1f2f2f;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.page-button-dark:hover {
+    background-color: #2f3f3f;
+}
+
+.page-button-dark-disabled {
+    background-color: #1f2f2f;
+    transition: .3s;
+    cursor: pointer;
+}

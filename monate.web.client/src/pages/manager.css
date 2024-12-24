@@ -1,0 +1,57 @@
+.body-dark {
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    box-sizing: border-box;
+    padding: 0px;
+    background-color: black;
+}
+
+.body-light {
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    box-sizing: border-box;
+    padding: 0px;
+    background-color: white;
+}
+
+.tab-button-light {
+    background-color: #00000022;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: #1f2f2f;
+    height: 50px;
+    font-size: 25px;
+    border-radius: 15px 0px 0px 15px;
+    cursor: pointer;
+    transition: .3s
+}
+
+.tab-button-light:hover {
+    background-color: #00000044;
+}
+
+.tab-button-dark {
+    background-color: #ffffff22;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: #dfefef;
+    height: 50px;
+    font-size: 25px;
+    border-radius: 15px 0px 0px 15px;
+    cursor: pointer;
+    transition: .3s
+}
+
+.tab-button-dark:hover {
+    background-color: #ffffff44;
+}

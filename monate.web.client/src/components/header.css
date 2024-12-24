@@ -1,0 +1,143 @@
+.header-dark {
+    background-color: #1f2f2f77;
+    backdrop-filter: blur(5px);
+    color: white;
+    padding: 6px;
+    position: fixed;
+    height: 60px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: background-color 0.3s ease, height 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.header-dark:hover {
+    background-color: #1f2f2f;
+}
+
+.header-light {
+    background-color: #dfefef77;
+    backdrop-filter: blur(5px);
+    color: #1f2f2f;
+    padding: 6px;
+    position: fixed;
+    height: 60px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: background-color 0.3s ease, height 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.header-light:hover {
+    background-color: #dfefef;
+}
+
+.header-scrolled {
+    height: 40px;
+}
+
+.header-nav {
+    flex: 0 0 auto;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-title-link {
+    display: flex;
+    flex-direction: row;
+}
+
+.header-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 40px;
+}
+
+.header-dark-link-title {
+    transition: 0.3s;
+    color: #dfefef;
+    margin-left: 2rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.header-dark-link-title:active {
+    color: #cccccc;
+}
+
+.header-light-link-title {
+    transition: 0.3s;
+    color: #1f2f2f;
+    margin-left: 2rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.header-light-link-title:active {
+    color: #4f5f5f;
+}
+
+.header-right {
+    text-align: right;
+    align-content: center;
+    flex-direction: row;
+    display: flex;
+}
+
+.header-region {
+    text-align: right;
+    padding-right: 2rem;
+    align-content: center;
+}
+
+.header-name {
+    text-align: right;
+    margin-top: 3px;
+    padding-right: 2rem;
+    align-content: center;
+}
+
+.header-avatar-container {
+    width: 30px;
+    height: 27px;
+    display: flex;
+    padding-right: 0.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-avatar-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.header-avatar-div {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 25px;
+    border-radius: 50%;
+    background-color: deeppink;
+    object-fit: cover;
+    color: white;
+    border: 1px solid #28c;
+}
+
+.header-log-in-button {
+    right: 20px;
+}
+
+.header-sign-up-button {
+    right: 20px;
+}

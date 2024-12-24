@@ -1,0 +1,29 @@
+.list-item-light {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00000000;
+    cursor: pointer;
+    padding: 5px;
+    color: #1f2f2f;
+    transition: .3s;
+}
+
+.list-item-light:hover {
+    background-color: #00000011;
+}
+
+.list-item-dark {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00000000;
+    cursor: pointer;
+    padding: 5px;
+    color: #dfefef;
+    transition: .3s;
+}
+
+.list-item-dark:hover {
+    background-color: #ffffff11;
+}

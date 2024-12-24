@@ -1,0 +1,73 @@
+.tabs-dark {
+    backdrop-filter: blur(5px);
+    background-color: #ffffff33;
+    border-radius: 5vh;
+    width: 25%;
+    height: 15vh;
+    cursor: pointer;
+    transition: .5s;
+    display: flex;
+    flex-direction: row
+}
+
+.tabs-dark:hover {
+    background-color: #ffffff55;
+}
+
+.tabs-light {
+    backdrop-filter: blur(5px);
+    background-color: #1f2f2f11;
+    border-radius: 5vh;
+    width: 25%;
+    height: 15vh;
+    cursor: pointer;
+    transition: .5s;
+    display: flex;
+    flex-direction: row
+}
+
+.tabs-light:hover {
+    background-color: #1f2f2f22;
+}
+
+.tabs-title-light {
+    font-size: 4vh;
+    margin-top: 3vh;
+    color: black;
+    transition: .5s;
+}
+
+.tabs-title-dark {
+    font-size: 4vh;
+    margin-top: 3vh;
+    color: white;
+    transition: .5s;
+}
+
+.tabs-middle-line-light {
+    background-color: black;
+    width: 11.5vw;
+    height: 0.25vh;
+    transition: .5s;
+}
+
+.tabs-middle-line-dark {
+    background-color: white;
+    width: 11.5vw;
+    height: 0.25vh;
+    transition: .5s;
+}
+
+.tabs-description-light {
+    color: black;
+    padding: 10px 5vh 10px 0px;
+    font-size: 1.5vh;
+    transition: .5s;
+}
+
+.tabs-description-dark {
+    color: white;
+    padding: 10px 5vh 10px 0px;
+    font-size: 1.5vh;
+    transition: .5s;
+}

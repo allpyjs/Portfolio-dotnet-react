@@ -1,0 +1,15 @@
+[Unit]
+Description=MONATE Frontend App
+After=network.target
+
+[Service]
+WorkingDirectory=/home/ubuntu/publish/frontend
+ExecStart=/bin/bash -c "source /home/ubuntu/.nvm/nvm.sh && /home/ubuntu/.nvm/versions/node/v22.11.0/bin/http-server-spa ./ ./index.html"
+Restart=always
+RestartSec=10
+SyslogIdentifier=monate-frontend
+User=ubuntu
+Environment=NODE_ENV=PRODUCTION
+
+[Install]
+WantedBy=multi-user.target

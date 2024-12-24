@@ -1,0 +1,61 @@
+@MONATE.Web.Server_HostAddress = http://localhost:5177
+
+POST {{MONATE.Web.Server_HostAddress}}/User/
+Accept: application/json
+
+###
+
+GET {{MONATE.Web.Server_HostAddress}}/User/
+Accept: application/json
+
+###
+
+POST {{MONATE.Web.Server_HostAddress}}/Category/
+Accept: application/json
+
+###
+
+GET {{MONATE.Web.Server_HostAddress}}/Category/
+Accept: application/json
+
+###
+
+POST {{MONATE.Web.Server_HostAddress}}/Portfolio/
+Accept: application/json
+
+###
+
+GET {{MONATE.Web.Server_HostAddress}}/Portfolio/
+Accept: application/json
+
+###
+
+POST {{MONATE.Web.Server_HostAddress}}/Endpoint/
+Accept: application/json
+
+###
+
+GET {{MONATE.Web.Server_HostAddress}}/Endpoint/
+Accept: application/json
+
+###
+
+POST {{MONATE.Web.Server_HostAddress}}/ValueType/
+Accept: application/json
+
+###
+
+GET {{MONATE.Web.Server_HostAddress}}/ValueType/
+Accept: application/json
+
+###
+
+POST {{MONATE.Web.Server_HostAddress}}/Workflow/
+Accept: application/json
+
+###
+
+GET {{MONATE.Web.Server_HostAddress}}/Workflow/
+Accept: application/json
+
+###

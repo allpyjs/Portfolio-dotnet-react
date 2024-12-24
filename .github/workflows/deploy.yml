@@ -1,0 +1,93 @@
+name: Deploy Portfolio Site
+run-name: ${{ github.actor }} is deploying portfolio site
+
+on:
+  push:
+    branches:
+     - master
+
+jobs:
+  deploying:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Setup node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '22'
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v2
+        with: 
+          dotnet-version: '8.0'
+        
+      - name: Install dependencies for frontend
+        run: |
+          npm install
+          npm audit fix
+        working-directory: ./monate.web.client
+
+      - name: Configure frontend dotenv
+        run: |
+          echo "${{ secrets.FRONT_END_DOTENV }}" > ./.env
+          chmod 666 ./.env
+        working-directory: ./monate.web.client
+
+      - name: Build frontend
+        run: npm run build
+        working-directory: ./monate.web.client
+
+      - name: Setup SSH key for EC2 access
+        run: |
+          echo "${{ secrets.EC2_SSH }}" > ./monate.pem
+          chmod 600 ./monate.pem
+
+      - name: Add EC2 host key to known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H ${{ secrets.EC2_SERVER }} >> ~/.ssh/known_hosts
+
+      - name: Copy frontend to EC2
+        run: |
+          scp -i ../monate.pem -r ./dist/* ${{ secrets.EC2_USER }}@${{ secrets.EC2_SERVER }}:/home/${{ secrets.EC2_USER }}/publish/frontend
+        working-directory: ./monate.web.client
+      
+      - name: Build backend
+        run: |
+          dotnet restore
+          dotnet build
+          dotnet publish -c Release -o ./publish
+        working-directory: ./MONATE.Web.Server
+
+      - name: Configure dotenv
+        run: |
+          echo "${{ secrets.DOT_ENV }}" > ./.env
+          chmod 666 ./.env
+        working-directory: ./MONATE.Web.Server/publish
+
+      - name: Copy backend to EC2
+        run: |
+          scp -i ../monate.pem ./publish/.env ${{ secrets.EC2_USER }}@${{ secrets.EC2_SERVER }}:/home/${{ secrets.EC2_USER }}/publish/backend
+          scp -i ../monate.pem -r ./publish/* ${{ secrets.EC2_USER }}@${{ secrets.EC2_SERVER }}:/home/${{ secrets.EC2_USER }}/publish/backend
+        working-directory: ./MONATE.Web.Server
+
+      - name: Copy server config to EC2 and config server
+        run: |
+          scp -i ./monate.pem -r ./server_config/* ${{ secrets.EC2_USER }}@${{ secrets.EC2_SERVER }}:/home/${{ secrets.EC2_USER }}/publish/server_config
+          ssh -i ./monate.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_SERVER }} 'sudo cp ~/publish/server_config/default /etc/nginx/sites-available/default'
+          ssh -i ./monate.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_SERVER }} 'sudo cp ~/publish/server_config/monate-api.service /etc/systemd/system/monate-api.service'
+          ssh -i ./monate.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_SERVER }} 'sudo cp ~/publish/server_config/monate-frontend.service /etc/systemd/system/monate-frontend.service'
+
+      - name: Reload service infos
+        run: |
+          ssh -i ./monate.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_SERVER }} 'sudo nginx -t'
+          ssh -i ./monate.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_SERVER }} 'sudo systemctl daemon-reload'
+
+      - name: Restart services on EC2
+        run: |
+          ssh -i ./monate.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_SERVER }} 'sudo systemctl restart nginx'
+          ssh -i ./monate.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_SERVER }} 'sudo systemctl restart monate-api.service'
+          ssh -i ./monate.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_SERVER }} 'sudo systemctl restart monate-frontend.service'

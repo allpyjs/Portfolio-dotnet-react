@@ -1,0 +1,16 @@
+[Unit]
+Description=ASP.NET Core Web API
+After=network.target
+
+[Service]
+WorkingDirectory=/home/ubuntu/publish/backend
+ExecStart=dotnet ./MONATE.Web.Server.dll
+Restart=always
+RestartSec=10
+SyslogIdentifier=monate-api
+User=ubuntu
+Environment=ASPNETCORE_ENVIRONMENT=PRODUCTION
+Environment=NOTNET_POINT_TELEMETRY_INFORMATION=false
+
+[Install]
+WantedBy=multi-user.target
